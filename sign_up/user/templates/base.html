@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'font/stylesheet.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media.css' %}">
+    <title>Agro</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-xs-6 col-6">
+                     <a href="#" class="logo">
+                        <img src="images/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-12 d-flex align-items-center justify-content-between mob_menu">
+                    <ul class="nav">
+                        <li class="active"><a href="#">Товары и услуги</a></li>
+                        <li><a href="#">Закупки</a></li>
+                        <li><a href="#">Продавцы</a></li>
+                        <li><a href="#">Покупатели</a></li>
+                    </ul>
+                    <a href="#" class="add_advert"><img src="images/plus_circle.png" alt="">Добавить объявление</a>
+                    <a href="registratsiya.html" class="add_advert"><img src="images/user.png" alt="">Вход / Регистрация</a>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="future other reg">
+        <div class="container">
+            <div class="registr_bl">
+                <ul>
+                    <li class="active"><a href="#">Авторизация</a></li>
+                    <li><a href="#">Регистрация</a></li>
+                </ul>
+                <div class="main_tab">
+                    <div id="avt" class="tab_item active">
+                        <div class="overlay"></div>
+                        <form method="post">
+                           {% csrf_token %}
+                           <div class="form_group">
+                               <label for="#">Электронная почта</label>
+                               <input type="email" name="login_email" placeholder="eleery@gmail.com">
+                           </div>
+                           <div class="form_group">
+                               <label for="#">Пароль</label>
+                               <input type="password" name="login_password" placeholder="************">
+                           </div>
+                           <button type="submit">Войти</button>
+                           <a href="#" class="remem_pass">Забыли пароль?</a>
+                        </form>
+                    </div>
+                    <div id="reg" class="tab_item ">
+                        <div class="overlay"></div>
+                        <form action="{% url 'register' %}" method="post">
+                            {% csrf_token %}
+                            <div class="form_group">
+                               <label for="#">Ваше имя / Название компании</label>
+                               {{ form.user_type }}
+                            </div>
+                            <div class="form_group">
+                               <label for="#">Ваше имя / Название компании</label>
+                               {{ form.full_name }}
+                            </div>
+                            <div class="form_group">
+                               <label for="#">Электронный адрес</label>
+                               {{ form.email }}
+                            </div>
+                            <div class="form_group">
+                               <label for="#">Пароль</label>
+                               {{ form.password }}
+                            </div>
+                            <div class="check">
+                                <input type="checkbox" id="aser" style="display: none;">
+                                <label for="aser" class="check_form">
+                                    Согласен с условиями <a href="#" target="_blank">публичной оферты</a>
+                                </label>
+                            </div>
+                           <button type="submit">Зарегистрироваться</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="ftr_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <a href="#" class="mb_wi"><img src="images/logo_white.png" alt=""></a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 ots col-6">
+                        <p>Доступно для скачивания</p>
+                        <div class="foot_link">
+                            <a href="#"><img src="images/app_store.png" alt=""></a>
+                            <a href="#"><img src="images/google_play.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 ots col-6">
+                        <p>Принимаем к оплате</p>
+                        <div class="foot_link">
+                            <a href="#"><img src="images/payme.png" alt=""></a>
+                            <a href="#"><img src="images/click.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-6 text-right">
+                        <a href="#">Помощь</a>
+                        <a href="#">Написать администратору</a>
+                        <a href="#">Размещение рекламы </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ftr_bottom">
+            <div class="container">
+                <p>Agro Uzbekistan © 2018</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/cleave.min.js' %}"></script>
+    <script src="{% static 'js/select2.min.js' %}"></script>
+    <script src="{% static 'js/cleave-phone.uz.js' %}"></script>
+    <script src="{% static 'js/all.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.j' %}s"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script>
+        new Cleave('.tel', {
+            phone: true,
+            delimetrs: [" (", ") ", "-", "-"],
+            phoneRegionCode: 'UZ',
+            prefix: "+998"
+          });
+    </script>
+</body>
+</html>
